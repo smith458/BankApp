@@ -8,37 +8,46 @@ using MVVM;
 
 namespace ViewModels
 {
-    public class LoginViewModel : ObservableObject
+  public delegate void LoginDelegate(bool IsLoggedIn, string userName);
+
+  public class LoginViewModel : ObservableObject
+  {
+    private string _userName = "";
+    private string _password = "";
+    private readonly DelegateCommand _loginCommand;
+
+    public LoginViewModel()
     {
-      private string _userName = "";
-      private string _password = "";
-      
-      public string UserName
-      {
-        get => _userName;
-        set
-        {
-          _userName = value;
-          RaisePropertyChangedEvent(nameof(UserName));
-        }
-      }
+      _loginCommand = new DelegateCommand(Login);
+    }
 
-      public string Password
+    public string UserName
+    {
+      get => _userName;
+      set
       {
-        get => _password;
-        set
-        {
-          _password = value;
-          RaisePropertyChangedEvent(nameof(Password));
-        }
-      }
-
-      public ICommand LoginCommand => new DelegateCommand(Login);
-
-      public void Login()
-      {
-        UserName = "";
-        Password = "";
+        _userName = value;
+        RaisePropertyChangedEvent(nameof(UserName));
       }
     }
+
+    public string Password
+    {
+      get => _password;
+      set
+      {
+        _password = value;
+        RaisePropertyChangedEvent(nameof(Password));
+      }
+    }
+
+    public ICommand LoginCommand => _loginCommand;
+
+    public void Login()
+    {
+      OnLoggedIn(true, _userName);
+    }
+
+    public event LoginDelegate OnLoggedIn;
+  }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE25F3E0-95DB-4ED7-8F3E-BC20A9165694}</ProjectGuid>
+    <ProjectGuid>{E7462CF4-282C-43F0-9DEC-A99EE68A2EB2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ViewModels</RootNamespace>
-    <AssemblyName>ViewModels</AssemblyName>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,20 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountViewModel.cs" />
-    <Compile Include="LoginViewModel.cs" />
-    <Compile Include="MainViewModel.cs" />
+    <Compile Include="UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{e7462cf4-282c-43f0-9dec-a99ee68a2eb2}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MVVM\MVVM.csproj">
-      <Project>{b4900b77-2429-42d9-8c49-2e1d1dcbdf31}</Project>
-      <Name>MVVM</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

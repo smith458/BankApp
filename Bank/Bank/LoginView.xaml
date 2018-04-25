@@ -7,10 +7,10 @@
              xmlns:viewModels="clr-namespace:ViewModels;assembly=ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="400">
-    <UserControl.DataContext>
-        <viewModels:LoginViewModel/>
-    </UserControl.DataContext>
-    <Grid>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding LoginCommand}"/>
+    </UserControl.InputBindings>
+    <Grid FocusManager.FocusedElement="{Binding ElementName=UserNameBox}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -21,7 +21,7 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0">User Name:</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"/>
+        <TextBox Name="UserNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"/>
         <Label Grid.Row="1" Grid.Column="0">Password:</Label>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Password}"></TextBox>
         <Button Grid.Row="2" Grid.Column="1" Command="{Binding LoginCommand}">Login</Button>
