@@ -23,7 +23,7 @@
         <Label Grid.Row="0" Grid.Column="0">User Name:</Label>
         <TextBox Name="UserNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"/>
         <Label Grid.Row="1" Grid.Column="0">Password:</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Password}"></TextBox>
+        <PasswordBox Grid.Row="1" Grid.Column="1"></PasswordBox>
         <Button Grid.Row="2" Grid.Column="1" Command="{Binding LoginCommand}">Login</Button>
     </Grid>
 </UserControl>

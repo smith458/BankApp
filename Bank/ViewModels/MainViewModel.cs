@@ -6,19 +6,16 @@ using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MVVM;
 using MVVM.Annotations;
-using Model;
 
 namespace ViewModels
 {
   public class MainViewModel : INotifyPropertyChanged
   {
-    public LoginViewModel LoginVM { get; set; }
-    public AccountViewModel AccountVM { get; set; }
-    public UserAccount ThisAccount { get; }
-    private bool _isLoggedIn = false;
     private string _userName;
+    private bool _isLoggedIn = false;
     private bool _isNotLoggedIn = true;
 
     public string UserName
@@ -51,23 +48,21 @@ namespace ViewModels
       {
         if (value == _isNotLoggedIn) return;
         _isNotLoggedIn = value;
+        IsLoggedIn = !_isNotLoggedIn;
         OnPropertyChanged();
       }
     }
 
     public MainViewModel()
     {
-      ThisAccount = UserAccount.CreateUserAccount();
-      LoginVM = new LoginViewModel(ThisAccount);
-      AccountVM = new AccountViewModel(ThisAccount);
-      
-      LoginVM.OnLoggedIn += LogInUser;
+
     }
 
-    private void LogInUser(bool isLoggedIn, string userName)
+    public ICommand LoginCommand => new DelegateCommand(LoginUser);
+
+    private void LoginUser()
     {
-      IsLoggedIn = isLoggedIn;
-      UserName = userName;
+      IsLoggedIn = true;
     }
 
     // Method to Implement INotifyPropertyChanged

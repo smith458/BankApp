@@ -15,12 +15,8 @@
         <Grid.Resources>
             <ControlNamespace:BooleanToVisibilityConverter x:Key="btvConvert"/>
         </Grid.Resources>
-        <Border Visibility="{Binding IsNotLoggedIn, Converter={StaticResource btvConvert}}">
-            <local:Login DataContext="{Binding LoginVM}"/>
-        </Border>
-        <Border Visibility="{Binding IsLoggedIn, Converter={StaticResource btvConvert}}">
-            <local:Account/>
-        </Border>
+        <local:Login Visibility="{Binding IsNotLoggedIn, Converter={StaticResource btvConvert}}"/>
+        <local:Account Visibility="{Binding IsLoggedIn, Converter={StaticResource btvConvert}}"/>
     </Grid>
 </Window>
 
