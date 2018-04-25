@@ -1,23 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Model;
 using MVVM;
+using MVVM.Annotations;
 
 namespace ViewModels
 {
   public delegate void LoginDelegate(bool IsLoggedIn, string userName);
 
-  public class LoginViewModel : ObservableObject
+  public class LoginViewModel : INotifyPropertyChanged
   {
-    private string _userName = "";
+    private string _userName = "Steven";
     private string _password = "";
     private readonly DelegateCommand _loginCommand;
+    public UserAccount Account;
 
-    public LoginViewModel()
+    public LoginViewModel(UserAccount account)
     {
+      Account = account;
       _loginCommand = new DelegateCommand(Login);
     }
 
@@ -27,9 +33,10 @@ namespace ViewModels
       set
       {
         _userName = value;
-        RaisePropertyChangedEvent(nameof(UserName));
+        OnPropertyChanged();
       }
     }
+    
 
     public string Password
     {
@@ -37,7 +44,7 @@ namespace ViewModels
       set
       {
         _password = value;
-        RaisePropertyChangedEvent(nameof(Password));
+        OnPropertyChanged();
       }
     }
 
@@ -49,5 +56,12 @@ namespace ViewModels
     }
 
     public event LoginDelegate OnLoggedIn;
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    [NotifyPropertyChangedInvocator]
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
   }
 }

@@ -61,7 +61,6 @@ namespace ViewModels
       LoginVM = new LoginViewModel(ThisAccount);
       AccountVM = new AccountViewModel(ThisAccount);
       
-      
       LoginVM.OnLoggedIn += LogInUser;
     }
 

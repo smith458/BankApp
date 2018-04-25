@@ -13,14 +13,13 @@ namespace ViewModels
   public class AccountViewModel : INotifyPropertyChanged
   {
     public UserAccount Account;
-    private string _userName;
 
     public AccountViewModel(UserAccount account)
     {
       Account = account;
-      UserName = Account.UserName;
     }
 
+    /*
     public string UserName
     {
       get => _userName;
@@ -31,6 +30,7 @@ namespace ViewModels
         OnPropertyChanged();
       }
     }
+    */
 
     public event PropertyChangedEventHandler PropertyChanged;
 
