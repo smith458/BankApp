@@ -17,6 +17,7 @@ namespace ViewModels
     private string _userName;
     private bool _isLoggedIn = false;
     private bool _isNotLoggedIn = true;
+    private string _passwordFeedback = " ";
 
     public string UserName
     {
@@ -53,6 +54,17 @@ namespace ViewModels
       }
     }
 
+    public string PasswordFeedback
+    {
+      get => _passwordFeedback;
+      set
+      {
+        if (value == _passwordFeedback) return;
+        _passwordFeedback = value;
+        OnPropertyChanged();
+      }
+    }
+
     public MainViewModel()
     {
 
@@ -62,7 +74,14 @@ namespace ViewModels
 
     private void LoginUser()
     {
-      IsLoggedIn = true;
+      if (string.IsNullOrWhiteSpace(UserName))
+      {
+        PasswordFeedback = "Password cannot be empty";
+      }
+      else
+      {
+        IsLoggedIn = true;
+      }
     }
 
     // Method to Implement INotifyPropertyChanged

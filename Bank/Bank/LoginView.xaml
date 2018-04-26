@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -24,6 +25,7 @@
         <TextBox Name="UserNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"/>
         <Label Grid.Row="1" Grid.Column="0">Password:</Label>
         <PasswordBox Grid.Row="1" Grid.Column="1"></PasswordBox>
-        <Button Grid.Row="2" Grid.Column="1" Command="{Binding LoginCommand}">Login</Button>
+        <Label Grid.Row="2" Grid.Column="1" Content="{Binding PasswordFeedback}"/>
+        <Button Grid.Row="3" Grid.Column="1" Command="{Binding LoginCommand}">Login</Button>
     </Grid>
 </UserControl>
