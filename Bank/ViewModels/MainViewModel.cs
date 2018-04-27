@@ -57,7 +57,7 @@ namespace ViewModels
 
     public MainViewModel()
     {
-      ThisAccount = UserAccount.CreateUserAccount();
+      ThisAccount = new UserAccount();
       LoginVM = new LoginViewModel(ThisAccount);
       AccountVM = new AccountViewModel(ThisAccount);
       

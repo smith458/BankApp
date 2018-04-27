@@ -16,7 +16,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="{Binding Path=Account.UserName}"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="{Binding Account.UserName}"/>
         <Label Grid.Row="1" Grid.Column="0" Content="Savings Account"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Balance:"/>
         <Label Grid.Row="2" Grid.Column="1" Content="1000.00"/>

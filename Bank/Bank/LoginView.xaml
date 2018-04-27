@@ -21,7 +21,7 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0">User Name:</Label>
-        <TextBox Name="UserNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding UserName}"/>
+        <TextBox Name="UserNameBox" Grid.Row="0" Grid.Column="1" Text="{Binding Account}"/>
         <Label Grid.Row="1" Grid.Column="0">Password:</Label>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Password}"></TextBox>
         <Button Grid.Row="2" Grid.Column="1" Command="{Binding LoginCommand}">Login</Button>

@@ -12,15 +12,9 @@ namespace Model
 {
   public class UserAccount : INotifyPropertyChanged
   {
-    private static UserAccount thisAccount;
     private string _userName = "Steven";
 
-    public static UserAccount CreateUserAccount()
-    {
-      return thisAccount ?? (thisAccount = new UserAccount());
-    }
-
-    private UserAccount()
+    public UserAccount()
     {
       
     }

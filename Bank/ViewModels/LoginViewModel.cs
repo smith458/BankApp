@@ -16,7 +16,6 @@ namespace ViewModels
 
   public class LoginViewModel : INotifyPropertyChanged
   {
-    private string _userName = "Steven";
     private string _password = "";
     private readonly DelegateCommand _loginCommand;
     public UserAccount Account;
@@ -26,17 +25,6 @@ namespace ViewModels
       Account = account;
       _loginCommand = new DelegateCommand(Login);
     }
-
-    public string UserName
-    {
-      get => _userName;
-      set
-      {
-        _userName = value;
-        OnPropertyChanged();
-      }
-    }
-    
 
     public string Password
     {
@@ -52,7 +40,7 @@ namespace ViewModels
 
     public void Login()
     {
-      OnLoggedIn(true, _userName);
+      OnPropertyChanged("");
     }
 
     public event LoginDelegate OnLoggedIn;
